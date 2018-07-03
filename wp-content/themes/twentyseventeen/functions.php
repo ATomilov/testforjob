@@ -34,110 +34,58 @@ add_action('wp_ajax_tfjAjaxUploadFile', 'ajax_tfjAjaxUploadFile');
 add_action('wp_ajax_nopriv_tfjAjaxUploadFile', 'ajax_tfjAjaxUploadFile');
 
 function ajax_tfjAjaxUploadFile() {
-	// if($_FILES["file"]["name"] != '')
-	// {
- 	// 	$test = explode('.', $_FILES["file"]["name"]);
- 	// 	$ext = end($test);
- 	// 	$name = rand(100, 999) . '.' . $ext;
- 	// 	$location = dirname( __FILE__ ) . "/uploads_new/" . $name;  
- 	// 	move_uploaded_file($_FILES["file"]["tmp_name"], $location);
-	// }	
-	// $product_id  = intval( $_POST['data_productId'] );
-	// $product_quantity = intval( $_POST['data_productQuantity'] );
-	// $possible = true;
-	// $target_dir = dirname( __FILE__ ) . "/uploads_new";
-	// $target_file = $target_dir . '/' . basename($_FILES["fileToUpload"]["name"]);
-	// $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-	// if(isset($_POST["submit"])) {
-	//     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-	//     if($check !== false) {
-	//       move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
-	//       if ( ! empty( $product_id ) ) {
-	//         update_post_meta( $product_id, 'Uploaded_image', sanitize_text_field( $_FILES["fileToUpload"]["name"] ) );
-	//       }
-	//     } else {
-	//         echo "File is not an image.";
-	//     }
-	// }
-	// if (file_exists($target_file)) {
-	//   echo "Sorry, file already exists.";
-	// }
-	// if ( $product_id && $product_quantity ) :
-	// 	WC()->cart->add_to_cart( $product_id, $product_quantity );
-	// else : 
-	// 	$possible = false;
-	// endif;
-	// $result = array(
-	//   'possible' => $possible
-  //   );
-	// if ( $result ) :
-  //       wp_send_json_success( $result );
-	// else :
-  //       wp_send_json_error();
-	// endif;
-	if ($_FILES["image"]["error"] == UPLOAD_ERR_OK)
+	if ($_FILES["image"]["error"] == UPLOAD_ERR_OK && !file_exists(__DIR__ . "/uploads_new/" .  $_FILES["image"]["name"]))
 	{
 		$file = $_FILES["image"]["tmp_name"];
 		// now you have access to the file being uploaded
 		//perform the upload operation.
 		move_uploaded_file( $file, __DIR__ . "/uploads_new/" .  $_FILES["image"]["name"] );
-		// echo $_FILES["image"]["tmp_name"];
+		$defender = false;
+		
 	}
-	// echo $_FILES["image"]["error"];
-	// var_dump($_FILES);
-	// echo dirname( __FILE__ ) . "/uploads_new/";
-	// echo get_template_directory_uri();
-	// echo basename($_FILES["image"]["name"]);
-	// echo __DIR__ . "\uploads_new";
-	// echo $_FILES["image"]["tmp_name"];
-	// echo get_template_directory_uri() . "/uploads_new/" . basename($_FILES["image"]["name"]);
-	// echo readfile($_FILES["image"]["tmp_name"]);
+	else {
+		$defender = true;
+	}
 	$result = array(
 		'url' 	=> get_template_directory_uri() . "/uploads_new/",
-		'name' 	=> $_FILES["image"]["name"]
+		'name' 	=> $_FILES["image"]["name"],
+		'defender' => $defender
 		);
 		if ( $result ) :
-		      wp_send_json_success( $result );
+		  wp_send_json_success( $result );
 		else :
-		      wp_send_json_error();
+		  wp_send_json_error();
 		endif;
 }
 
-add_action('wp_ajax_twAddToCart', 'ajax_twAddToCart');
-add_action('wp_ajax_nopriv_twAddToCart', 'ajax_twAddToCart');
+// add_action('wp_ajax_twAddToCart', 'ajax_twAddToCart');
+// add_action('wp_ajax_nopriv_twAddToCart', 'ajax_twAddToCart');
 
-function ajax_twAddToCart() {
-	if ( $product_id && $product_quantity ) :
-		WC()->cart->add_to_cart( $product_id, $product_quantity );
-	else : 
-		$possible = false;
-	endif;
-	$result = array(
-	  'possible' => $possible
-    );
-	if ( $result ) :
-    wp_send_json_success( $result );
-	else :
-    wp_send_json_error();
-	endif;
-}
-
-// function custom_new_product_image($a) {
-// 	global $woocommerce;
-//     foreach($woocommerce->cart->get_cart() as $cart_item_key => $values ) {
-//       $_product = $values['data'];
-//       $class = 'attachment-shop_thumbnail wp-post-image';
-// 			$src = get_template_directory_uri() . "/uploads_new/" . get_post_meta( $_product->id, 'Uploaded_image', true );
-// 			$a = '<img';
-// 			$a .= ' src="' . $src . '"';
-// 			$a .= ' class="' . $class . '"';
-// 			$a .= ' />';
-// 			return $a;
-//     }
-	
+// function ajax_twAddToCart() {
+// 	$product_id = intval( $_POST['data_productId'] );
+// 	$product_quantity = intval( $_POST['data_productQuantity'] );
+// 	if ( $product_id && $product_quantity ) :
+// 		WC()->cart->add_to_cart( $product_id, $product_quantity );
+// 		$possible = true;
+// 	else : 
+// 		$possible = false;
+// 	endif;
+// 	$result = array(
+// 	  'possible' => $possible
+//     );
+// 	if ( $result ) :
+//     wp_send_json_success( $result );
+// 	else :
+//     wp_send_json_error();
+// 	endif;
 // }
 
-// add_filter( 'woocommerce_cart_item_thumbnail', 'custom_new_product_image', 10, 3 );
+function resolve_dupes_add_to_cart_redirect($url = false) {
+     if(!empty($url)) { return $url; }
+     return get_bloginfo('wpurl').add_query_arg(array(), remove_query_arg('add-to-cart'));
+}
+
+add_action('add_to_cart_redirect', 'resolve_dupes_add_to_cart_redirect');
 
 function show_ajax_uploated_image() {
 	?>
@@ -148,47 +96,54 @@ function show_ajax_uploated_image() {
 
 add_action( 'woocommerce_product_meta_end', 'show_ajax_uploated_image', 10 );
 
-function iconic_output_engraving_field() {
+function tfj_output_upload_file_field() {
 	?>
 	<div class="custom-image-field">
-		<label for="custom-image-input"><?php _e( 'Select your image', 'iconic' ); ?></label>
+		<label for="custom-image-input"><?php _e( 'Select your image', 'tfj' ); ?></label>
 		<input type="file" id="custom-image-input" name="custom-image-input" accept="image/*">
 		<input type="hidden" name="upload-image-name">
 	</div>
 	<?php
 }
 
-add_action( 'woocommerce_before_add_to_cart_button', 'iconic_output_engraving_field', 10 );
+add_action( 'woocommerce_before_add_to_cart_button', 'tfj_output_upload_file_field', 10 );
 
-function iconic_add_engraving_text_to_cart_item( $cart_item_data, $product_id, $variation_id ) {
-	$engraving_text = filter_input( INPUT_POST, 'upload-image-name' );
-
-	if ( empty( $engraving_text ) ) {
+function tfj_add_upload_file_name_to_cart_item( $cart_item_data, $product_id, $variation_id ) {
+	$upload_file_name = sanitize_text_field( $_FILES['custom-image-input']['name'] );
+	if ( empty( $upload_file_name ) ) {
 			return $cart_item_data;
 	}
-
-	$cart_item_data['upload-image-name'] = $_FILES["image"]["name"];
-
+	$cart_item_data['upload-image-name'] = $upload_file_name;
 	return $cart_item_data;
 }
 
-add_filter( 'woocommerce_add_cart_item_data', 'iconic_add_engraving_text_to_cart_item', 10, 3 );
+add_filter( 'woocommerce_add_cart_item_data', 'tfj_add_upload_file_name_to_cart_item', 10, 3 );
 
-function iconic_display_engraving_text_cart( $item_data, $cart_item ) {
+function tfj_display_upload_file_name_cart( $item_data, $cart_item ) {
 	if ( empty( $cart_item['upload-image-name'] ) ) {
 			return $item_data;
 	}
 
 	$item_data[] = array(
-			'key'     => __( 'Image', 'iconic' ),
-			'value'   => wc_clean( $cart_item['upload-image-name'] ),
+			'key'     => __( 'Image', 'tfj' ),
+			'value'   => '<img src="' . get_template_directory_uri() . '/uploads_new/' . wc_clean( $cart_item['upload-image-name'] ) . '" alt="">',
 			'display' => '',
 	);
 
 	return $item_data;
 }
 
-add_filter( 'woocommerce_get_item_data', 'iconic_display_engraving_text_cart', 10, 2 );
+add_filter( 'woocommerce_get_item_data', 'tfj_display_upload_file_name_cart', 10, 2 );
+
+function tfj_add_upload_image_name_to_order_items( $item, $cart_item_key, $values, $order ) {
+	if ( empty( $values['upload-image-name'] ) ) {
+		return;
+	}
+
+	$item->add_meta_data( __( 'Image', 'tfj' ), $values['upload-image-name'] );
+}
+
+add_action( 'woocommerce_checkout_create_order_line_item', 'tfj_add_upload_image_name_to_order_items', 10, 4 );
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.

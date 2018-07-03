@@ -4,3 +4,10 @@ img.attachment-woocommerce_thumbnail.size-woocommerce_thumbnail.wp-post-image {
 input#custom-image-input {
   width: 100%;
 }
+.variation-Image img {
+  max-width: 60px;
+}
+.disabled-button {
+  pointer-events: none;
+  background-color: #767676;
+}

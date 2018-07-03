@@ -26,12 +26,20 @@ if ( ! $product->is_purchasable() ) {
 echo wc_get_stock_html( $product ); // WPCS: XSS ok.
 
 if ( $product->is_in_stock() ) : ?>
+	<!-- <form action="tfjUploadFile" method="post" enctype="multipart/form-data">
+    Select image to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+		<input type="hidden" name="post_id" id="post_id" value="<?php the_ID();?>" />
+    <input type="submit" value="Upload Image" name="submit">
+	</form>
+	
+	<?php echo '<p><strong>' . ( 'Image name' ) . ':</strong> ' . get_post_meta( get_the_ID(), 'Uploaded_image', true ) . '</p>';?> -->
 
 	<?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
 	<form class="cart" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data'>
 		<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
-		<input type="hidden" id="post_id" name="post_id" value="<?php the_ID();?>">
+
 		<?php
 		do_action( 'woocommerce_before_add_to_cart_quantity' );
 
@@ -44,11 +52,13 @@ if ( $product->is_in_stock() ) : ?>
 		do_action( 'woocommerce_after_add_to_cart_quantity' );
 		?>
 
-		<button type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" class="single_add_to_cart_button button alt"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
+		<!-- <button type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" class="single_add_to_cart_button button alt"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button> -->
+
+		<a href="" class="test-add-to-cart">Add to cart</a>
 
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 	</form>
-	<?php var_dump($_FILES['custom-image-input']['name']);?>
+
 	<?php do_action( 'woocommerce_after_add_to_cart_form' ); ?>
 
 <?php endif; ?>
