@@ -11,3 +11,9 @@ input#custom-image-input {
   pointer-events: none;
   background-color: #767676;
 }
+.woocommerce-order-details img {
+  max-width: 80px;
+}
+table.display_meta img {
+  max-width: 80px!important;
+}

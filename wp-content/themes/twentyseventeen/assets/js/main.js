@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
   var chosenFile = $('#custom-image-input').prop('files').length;
-    if (chosenFile<=0) {
+    if (chosenFile == 0) {
       $('form.cart button[name="add-to-cart"]').addClass("disabled-button");
       // alert("!");
     }
@@ -44,15 +44,24 @@ jQuery(document).ready(function($) {
   //   });
   // });
   $('body').on('submit', 'form.cart', function (e) {
+    // e.preventDefault();
     var chosenFile = $('#custom-image-input').prop('files').length;
-    if (chosenFile<=0) {
-      alert("Please, choose file first");
+    // alert($('#custom-image-input').prop('files').length);
+    // alert(chosenFile == 0);
+    // var ext = $('#custom-image-input').prop('files')[0]['name'].split('.').pop().toLowerCase();
+    var ext = $("#custom-image-input").val().split('.').pop().toLowerCase();
+    // alert(ext);
+    if (chosenFile == 0) {
       e.preventDefault(); 
+      alert("Please, choose file first");
+    }
+    else if (ext!='png' && ext!='jpg' && ext!='jpeg' && ext!='bmp' && ext!='gif') {
+      e.preventDefault();
+      alert("Please, choose correct file type first");
     }
   });
 
   $('#custom-image-input').change(function(){
-    $('form.cart button[name="add-to-cart"]').removeClass("disabled-button");  
     var formdata = new FormData();
     if($(this).prop('files').length > 0)
     {
@@ -73,14 +82,23 @@ jQuery(document).ready(function($) {
       success: function (response) {
         // console.log(response['data']['url']);
         // console.log(response);
-        alert(response['data']['defender']);
-        $('.custom-uploated-image').html('<img src="'+ response['data']['url'] + response['data']['name'] +'" alt="">');
+        // alert(response['data']['is_file_correct']);
+        if (response['data']['is_file_correct']) {
+          $('form.cart button[name="add-to-cart"]').removeClass("disabled-button"); 
+          $('.custom-uploated-image').html('<img src="'+ response['data']['url'] + response['data']['name'] +'" alt="">');
+          $('input[name="upload-image-name"]').val(response['data']['name']);
+        } else {
+          $('form.cart button[name="add-to-cart"]').addClass("disabled-button");
+          $('.custom-uploated-image').html('');
+          alert("Wrong file type or file already exists");
+        }
+        
         // alert("Good.");
       },
       error: function (response) {
         alert("Not so good.");
       }
     });
-  // $('input[name="upload-image-name"]').val("");
+    $('form.cart button[name="add-to-cart"]').addClass("disabled-button");
   });
 });

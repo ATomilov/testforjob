@@ -1,0 +1,160 @@
+2018-07-05T02:00:26+00:00 CRITICAL Uncaught Error: Cannot access protected property WC_Order_Item_Product::$id in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\functions.php:157
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(288): display_custom_field_on_order_details(Object(WC_Order_Item_Product))
+#1 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\OSPanel\domains\testforjob\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\class-wc-checkout.php(410): do_action('woocommerce_che...', Object(WC_Order_Item_Product), 'b70e2693a514ad0...', Array, Object(WC_Order))
+#4 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\class-wc-checkout.php(339): WC_Checkout->create_order_line_items(Object(WC_Order), Object(WC_Cart))
+#5 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\class-wc-checkout.php(1030): WC_Checkout->create_order(Array)
+#6
+
+2018-07-05T02:05:54+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Order_Item_Product::get_items() in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\functions.php:157
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(288): display_custom_field_on_order_details(Object(WC_Order_Item_Product))
+#1 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\OSPanel\domains\testforjob\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\class-wc-checkout.php(410): do_action('woocommerce_che...', Object(WC_Order_Item_Product), 'b70e2693a514ad0...', Array, Object(WC_Order))
+#4 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\class-wc-checkout.php(339): WC_Checkout->create_order_line_items(Object(WC_Order), Object(WC_Cart))
+#5 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\class-wc-checkout.php(1030): WC_Checkout->create_order(Array)
+#6
+
+2018-07-05T02:06:20+00:00 CRITICAL Uncaught Error: Cannot access protected property WC_Order_Item_Product::$id in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\functions.php:157
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(288): display_custom_field_on_order_details(Object(WC_Order_Item_Product))
+#1 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\OSPanel\domains\testforjob\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\class-wc-checkout.php(410): do_action('woocommerce_che...', Object(WC_Order_Item_Product), 'b70e2693a514ad0...', Array, Object(WC_Order))
+#4 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\class-wc-checkout.php(339): WC_Checkout->create_order_line_items(Object(WC_Order), Object(WC_Cart))
+#5 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\class-wc-checkout.php(1030): WC_Checkout->create_order(Array)
+#6
+
+2018-07-05T02:10:02+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on boolean in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\functions.php:158
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(288): display_custom_field_on_order_details(false)
+#1 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\OSPanel\domains\testforjob\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\class-wc-checkout.php(410): do_action('woocommerce_che...', Object(WC_Order_Item_Product), 'b70e2693a514ad0...', Array, Object(WC_Order))
+#4 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\class-wc-checkout.php(339): WC_Checkout->create_order_line_items(Object(WC_Order), Object(WC_Cart))
+#5 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\class-wc-checkout.php(1030): WC_Checkout->create_order(Array)
+#6 C:\OSPanel\domains\testforjob\wp-cont
+
+2018-07-05T02:10:45+00:00 CRITICAL Uncaught Error: Cannot access protected property WC_Order_Item_Product::$id in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\functions.php:158
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(288): display_custom_field_on_order_details(Object(WC_Order_Item_Product))
+#1 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\OSPanel\domains\testforjob\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\class-wc-checkout.php(410): do_action('woocommerce_che...', Object(WC_Order_Item_Product), 'b70e2693a514ad0...', Array, Object(WC_Order))
+#4 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\class-wc-checkout.php(339): WC_Checkout->create_order_line_items(Object(WC_Order), Object(WC_Cart))
+#5 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\class-wc-checkout.php(1030): WC_Checkout->create_order(Array)
+#6
+
+2018-07-05T05:11:17+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function change_view_meta_data_on_order_page(), 1 passed in C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php on line 288 and exactly 2 expected in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\functions.php:150
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(288): change_view_meta_data_on_order_page(14)
+#1 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\OSPanel\domains\testforjob\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\templates\order\order-details-item.php(37): do_action('woocommerce_ord...', 14, Object(WC_Order_Item_Product), Object(WC_Order), false)
+#4 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\wc-core-functions.php(210): include('C:\\OSPanel\\doma...')
+#5 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\templates\order\order-de
+
+2018-07-05T05:26:50+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function change_view_meta_data_on_order_page(), 2 passed in C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php on line 288 and exactly 3 expected in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\functions.php:150
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(288): change_view_meta_data_on_order_page(14, Object(WC_Order_Item_Product))
+#1 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\OSPanel\domains\testforjob\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\templates\order\order-details-item.php(37): do_action('woocommerce_ord...', 14, Object(WC_Order_Item_Product), Object(WC_Order), false)
+#4 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\wc-core-functions.php(210): include('C:\\OSPanel\\doma...')
+#5 C:\OSPanel\domains\testforjob\wp-content\plugins\wooco
+
+2018-07-05T06:02:42+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function change_view_image_meta_data_on_order_page(), 2 passed in C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php on line 288 and exactly 3 expected in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\functions.php:150
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(288): change_view_image_meta_data_on_order_page(16, Object(WC_Order_Item_Product))
+#1 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\OSPanel\domains\testforjob\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\templates\order\order-details-item.php(37): do_action('woocommerce_ord...', 16, Object(WC_Order_Item_Product), Object(WC_Order), false)
+#4 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\wc-core-functions.php(210): include('C:\\OSPanel\\doma...')
+#5 C:\OSPanel\domains\testforjob\wp-content\p
+
+2018-07-05T06:03:36+00:00 CRITICAL Uncaught Error: Cannot use object of type WC_Order as array in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\functions.php:151
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(286): change_view_image_meta_data_on_order_page(16, Object(WC_Order_Item_Product), Object(WC_Order), false)
+#1 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\OSPanel\domains\testforjob\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\templates\order\order-details-item.php(37): do_action('woocommerce_ord...', 16, Object(WC_Order_Item_Product), Object(WC_Order), false)
+#4 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\wc-core-functions.php(210): include('C:\\OSPanel\\doma...')
+#5 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\templates\order\order-details.php(63): wc_get_template('order/order-det...', Array)
+#6 C:\OSPanel\domains\t
+
+2018-07-05T06:05:56+00:00 CRITICAL Uncaught Error: Cannot use object of type WC_Order as array in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\functions.php:151
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(286): change_view_image_meta_data_on_order_page(16, Object(WC_Order_Item_Product), Object(WC_Order), false)
+#1 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\OSPanel\domains\testforjob\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\templates\order\order-details-item.php(37): do_action('woocommerce_ord...', 16, Object(WC_Order_Item_Product), Object(WC_Order), false)
+#4 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\wc-core-functions.php(210): include('C:\\OSPanel\\doma...')
+#5 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\templates\order\order-details.php(63): wc_get_template('order/order-det...', Array)
+#6 C:\OSPanel\domains\t
+
+2018-07-05T07:34:31+00:00 CRITICAL Uncaught Error: Call to a member function get_formatted_meta_data() on string in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\functions.php:163
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(288): change_view_image_meta_data_on_order_page('<ul class="wc-i...')
+#1 C:\OSPanel\domains\testforjob\wp-includes\plugin.php(203): WP_Hook->apply_filters('<ul class="wc-i...', Array)
+#2 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\wc-template-functions.php(3031): apply_filters('woocommerce_dis...', '<ul class="wc-i...', Object(WC_Order_Item_Product), Array)
+#3 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\templates\order\order-details-item.php(39): wc_display_item_meta(Object(WC_Order_Item_Product))
+#4 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\wc-core-functions.php(210): include('C:\\OSPanel\\doma...')
+#5 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\templates\order\order-details.php(63): wc_
+
+2018-07-05T07:42:45+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function change_view_image_meta_data_on_order_page(), 1 passed in C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php on line 288 and exactly 4 expected in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\functions.php:152
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(288): change_view_image_meta_data_on_order_page('<ul class="wc-i...')
+#1 C:\OSPanel\domains\testforjob\wp-includes\plugin.php(203): WP_Hook->apply_filters('<ul class="wc-i...', Array)
+#2 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\wc-template-functions.php(3031): apply_filters('woocommerce_dis...', '<ul class="wc-i...', Object(WC_Order_Item_Product), Array)
+#3 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\templates\order\order-details-item.php(39): wc_display_item_meta(Object(WC_Order_Item_Product))
+#4 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\wc-core-functions.php(210): inclu
+
+2018-07-05T07:43:14+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function change_view_image_meta_data_on_order_page(), 3 passed in C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php on line 286 and exactly 4 expected in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\functions.php:152
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(286): change_view_image_meta_data_on_order_page('<ul class="wc-i...', Object(WC_Order_Item_Product), Array)
+#1 C:\OSPanel\domains\testforjob\wp-includes\plugin.php(203): WP_Hook->apply_filters('<ul class="wc-i...', Array)
+#2 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\wc-template-functions.php(3031): apply_filters('woocommerce_dis...', '<ul class="wc-i...', Object(WC_Order_Item_Product), Array)
+#3 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\templates\order\order-details-item.php(39): wc_display_item_meta(Object(WC_Order_Item_Product))
+#4 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\incl
+
+2018-07-05T07:50:51+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function change_view_image_meta_data_on_order_page(), 3 passed in C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php on line 286 and exactly 4 expected in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\functions.php:146
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(286): change_view_image_meta_data_on_order_page('<ul class="wc-i...', Object(WC_Order_Item_Product), Array)
+#1 C:\OSPanel\domains\testforjob\wp-includes\plugin.php(203): WP_Hook->apply_filters('<ul class="wc-i...', Array)
+#2 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\wc-template-functions.php(3031): apply_filters('woocommerce_dis...', '<ul class="wc-i...', Object(WC_Order_Item_Product), Array)
+#3 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\templates\order\order-details-item.php(39): wc_display_item_meta(Object(WC_Order_Item_Product))
+#4 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\incl
+
+2018-07-05T08:03:04+00:00 CRITICAL Uncaught Error: Cannot use object of type WC_Meta_Data as array in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\functions.php:149
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(286): change_view_image_meta_data_on_order_page(17, Object(WC_Order_Item_Product), Object(WC_Order), false)
+#1 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\OSPanel\domains\testforjob\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\templates\order\order-details-item.php(37): do_action('woocommerce_ord...', 17, Object(WC_Order_Item_Product), Object(WC_Order), false)
+#4 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\wc-core-functions.php(210): include('C:\\OSPanel\\doma...')
+#5 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\templates\order\order-details.php(63): wc_get_template('order/order-det...', Array)
+#6 C:\OSPanel\domai
+
+2018-07-05T08:05:34+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Meta_Data::get_post_meta() in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\functions.php:149
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(286): change_view_image_meta_data_on_order_page(17, Object(WC_Order_Item_Product), Object(WC_Order), false)
+#1 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\OSPanel\domains\testforjob\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\templates\order\order-details-item.php(37): do_action('woocommerce_ord...', 17, Object(WC_Order_Item_Product), Object(WC_Order), false)
+#4 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\wc-core-functions.php(210): include('C:\\OSPanel\\doma...')
+#5 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\templates\order\order-details.php(63): wc_get_template('order/order-det...', Array)
+#6 C:\OSPane
+
+2018-07-05T08:08:11+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Order_Item_Product::get_post_meta() in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\functions.php:149
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(286): change_view_image_meta_data_on_order_page(17, Object(WC_Order_Item_Product), Object(WC_Order), false)
+#1 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\OSPanel\domains\testforjob\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\templates\order\order-details-item.php(37): do_action('woocommerce_ord...', 17, Object(WC_Order_Item_Product), Object(WC_Order), false)
+#4 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\wc-core-functions.php(210): include('C:\\OSPanel\\doma...')
+#5 C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\templates\order\order-details.php(63): wc_get_template('order/order-det...', Array)
+#6 
+

@@ -48,7 +48,7 @@ if ( $product->is_in_stock() ) : ?>
 
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 	</form>
-	<?php var_dump($_FILES['custom-image-input']['name']);?>
+	
 	<?php do_action( 'woocommerce_after_add_to_cart_form' ); ?>
 
 <?php endif; ?>
