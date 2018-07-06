@@ -614,12 +614,11 @@ add_action('wp_ajax_tfjAjaxUploadFile', 'ajax_tfjAjaxUploadFile');
 add_action('wp_ajax_nopriv_tfjAjaxUploadFile', 'ajax_tfjAjaxUploadFile');
 
 function ajax_tfjAjaxUploadFile() {
-	if ($_FILES["image"]["error"] == UPLOAD_ERR_OK && !file_exists(__DIR__ . "/uploads_new/" .  $_FILES["image"]["name"]) && ($_FILES["image"]["type"]=="image/jpeg" || $_FILES["image"]["type"]=="image/gif" || $_FILES["image"]["type"]=="image/png" || $_FILES["image"]["type"]=="image/bmp" || $_FILES["image"]["type"]=="image/gif"))
-	:
+	if ( $_FILES["image"]["error"] == UPLOAD_ERR_OK && !file_exists(__DIR__ . "/uploads_new/" .  $_FILES["image"]["name"]) && ( $_FILES["image"]["type"] == "image/jpeg" || $_FILES["image"]["type"] == "image/gif" || $_FILES["image"]["type"] == "image/png" || $_FILES["image"]["type"] == "image/bmp" || $_FILES["image"]["type"] == "image/gif" ) && $_FILES["image"]["size"] <= 1*1024*1024 ) :
 		$file = $_FILES["image"]["tmp_name"];
 		$old_file_name = explode( '.', $_FILES["image"]["name"] );
- 		$ext = end( $old_file_name );
-		$new_file_name = uniqid( '', true ). '.' . $ext;
+ 		$ext = strtolower( end( $old_file_name ) );
+		$new_file_name = md5( uniqid( rand(),true ) ). '.' . $ext;
 		move_uploaded_file( $file, __DIR__ . "/uploads_new/" .  $new_file_name );
 		$is_file_correct = true;
 	else :
@@ -631,9 +630,9 @@ function ajax_tfjAjaxUploadFile() {
 		'is_file_correct' => $is_file_correct
 		);
 		if ( $result ) :
-		  wp_send_json_success( $result );
+			wp_send_json_success( $result );
 		else :
-		  wp_send_json_error();
+			wp_send_json_error();
 		endif;
 }
 
@@ -643,8 +642,9 @@ function ajax_tfjAjaxUploadFile() {
 // function ajax_twAddToCart() {
 // 	$product_id = intval( $_POST['data_productId'] );
 // 	$product_quantity = intval( $_POST['data_productQuantity'] );
-// 	if ( $product_id && $product_quantity ) :
-// 		WC()->cart->add_to_cart( $product_id, $product_quantity );
+// 	$custom_cart_meta = $_POST['upload-image-name'];
+// 	if ( $product_id && $product_quantity && $custom_cart_meta ) :
+// 		WC()->cart->add_to_cart( $product_id, $product_quantity, $custom_cart_meta );
 // 		$possible = true;
 // 	else : 
 // 		$possible = false;
@@ -693,7 +693,7 @@ add_filter( 'woocommerce_add_cart_item_data', 'tfj_add_upload_file_name_to_cart_
 
 function tfj_display_upload_file_name_cart( $item_data, $cart_item ) {
 	if ( empty( $cart_item['upload-image-name'] ) ) {
-			return $item_data;
+		return $item_data;
 	}
 	$item_data[] = array(
 			'key'     => __( 'Image', 'tfj' ),
@@ -714,22 +714,9 @@ function tfj_add_upload_image_name_to_order_items( $item, $cart_item_key, $value
 
 add_action( 'woocommerce_checkout_create_order_line_item', 'tfj_add_upload_image_name_to_order_items', 10, 4 );
 
-// function change_view_image_meta_data_on_order_page( $item_id, $cart_item_key, $values, $order ){
-// 	echo '<br><strong>' . ( 'Image' ) . '</strong>: <img src="' . get_template_directory_uri() . '/uploads_new/' . wc_get_order_item_meta( $item_id, 'Image') . '" alt="">';
-// }
-
-// add_filter( 'woocommerce_order_item_meta_start', 'change_view_image_meta_data_on_order_page', 10, 4 );
-
-// function test_display_meta( $output ) {
-// 	$new_output = $output . 'test';
-// 	return $new_output;
-// }
-// add_filter( 'woocommerce_order_items_meta_display', 'test_display_meta', 10, 1 );
-
-add_filter( 'woocommerce_order_item_display_meta_value', 'change_view_image_meta_data_on_order_page', 10, 3 );
 function change_view_image_meta_data_on_order_page( $meta_value, $meta, $item ){
 	$extension_current_meta_value = strtolower( end( explode(".", $meta_value) ) );
-	if ($extension_current_meta_value=='png' || $extension_current_meta_value=='jpg' || $extension_current_meta_value=='jpeg' || $extension_current_meta_value=='bmp' || $extension_current_meta_value='gif') {
+	if ( $extension_current_meta_value == 'png' || $extension_current_meta_value == 'jpg' || $extension_current_meta_value == 'jpeg' || $extension_current_meta_value == 'bmp' || $extension_current_meta_value == 'gif') {
 		$new_meta_value = '<img src="' . get_template_directory_uri() . '/uploads_new/' . $meta_value . '" alt="">';
 		return $new_meta_value;
 	}
@@ -737,3 +724,5 @@ function change_view_image_meta_data_on_order_page( $meta_value, $meta, $item ){
 		return $meta_value;
 	}
 }
+
+add_filter( 'woocommerce_order_item_display_meta_value', 'change_view_image_meta_data_on_order_page', 10, 3 );

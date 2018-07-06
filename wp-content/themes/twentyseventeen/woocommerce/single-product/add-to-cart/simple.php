@@ -48,7 +48,7 @@ if ( $product->is_in_stock() ) : ?>
 
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 	</form>
-	
+	<!-- <div class="ajax-add-to-cart-test">Add to cart</div> -->
 	<?php do_action( 'woocommerce_after_add_to_cart_form' ); ?>
 
 <?php endif; ?>

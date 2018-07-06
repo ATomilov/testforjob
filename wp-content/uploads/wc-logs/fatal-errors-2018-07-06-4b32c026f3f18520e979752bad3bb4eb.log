@@ -1,0 +1,72 @@
+2018-07-06T08:44:16+00:00 CRITICAL Uncaught Error: Call to a member function get_items() on boolean in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php:16
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include()
+#1 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#3 {main}
+  thrown
+
+2018-07-06T08:46:38+00:00 CRITICAL Uncaught Error: Call to undefined method WP_Post::get_the_ID() in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php:15
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include()
+#1 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#3 {main}
+  thrown
+
+2018-07-06T08:46:51+00:00 CRITICAL Uncaught Error: Call to undefined method WP_Post::the_ID() in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php:15
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include()
+#1 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#3 {main}
+  thrown
+
+2018-07-06T08:47:04+00:00 CRITICAL Uncaught Error: Call to a member function get_items() on boolean in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php:16
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include()
+#1 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#3 {main}
+  thrown
+
+2018-07-06T08:47:46+00:00 CRITICAL Uncaught Error: Call to a member function get_the_items() on boolean in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php:16
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include()
+#1 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#3 {main}
+  thrown
+
+2018-07-06T08:57:31+00:00 CRITICAL Uncaught Error: Call to a member function get_item() on array in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php:16
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include()
+#1 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#3 {main}
+  thrown
+
+2018-07-06T09:04:47+00:00 CRITICAL Uncaught Error: Call to a member function get_item() on array in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php:16
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include()
+#1 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#3 {main}
+  thrown
+
+2018-07-06T09:07:53+00:00 CRITICAL Uncaught Error: Cannot use object of type WC_Order as array in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php:19
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include()
+#1 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#3 {main}
+  thrown
+
+2018-07-06T10:14:27+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Order::get_the_ID() in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php:19
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include()
+#1 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#3 {main}
+  thrown
+
