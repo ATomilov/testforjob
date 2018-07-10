@@ -621,19 +621,23 @@ function ajax_tfjAjaxUploadFile() {
 		$new_file_name = md5( uniqid( rand(),true ) ). '.' . $ext;
 		move_uploaded_file( $file, __DIR__ . "/uploads_new/" .  $new_file_name );
 		$is_file_correct = true;
+	elseif ( $_FILES["image"]["name"] == "" ) :
+		$is_file_empty = true;
 	else :
+		$is_file_empty = false;
 		$is_file_correct = false;
 	endif;
 	$result = array(
 		'url' 	=> get_template_directory_uri() . "/uploads_new/",
 		'name' 	=> $new_file_name,
-		'is_file_correct' => $is_file_correct
-		);
-		if ( $result ) :
-			wp_send_json_success( $result );
-		else :
-			wp_send_json_error();
-		endif;
+		'is_file_correct' => $is_file_correct,
+		'is_file_empty' => $is_file_empty
+	);
+	if ( $result ) :
+		wp_send_json_success( $result );
+	else :
+		wp_send_json_error();
+	endif;
 }
 
 // add_action('wp_ajax_twAddToCart', 'ajax_twAddToCart');
@@ -714,8 +718,8 @@ function tfj_add_upload_image_name_to_order_items( $item, $cart_item_key, $value
 
 add_action( 'woocommerce_checkout_create_order_line_item', 'tfj_add_upload_image_name_to_order_items', 10, 4 );
 
-function change_view_image_meta_data_on_order_page( $meta_value, $meta, $item ){
-	$extension_current_meta_value = strtolower( end( explode(".", $meta_value) ) );
+function tfj_change_view_image_meta_data_on_order_page( $meta_value, $meta, $item ){
+	$extension_current_meta_value = strtolower( end( explode( ".", $meta_value ) ) );
 	if ( $extension_current_meta_value == 'png' || $extension_current_meta_value == 'jpg' || $extension_current_meta_value == 'jpeg' || $extension_current_meta_value == 'bmp' || $extension_current_meta_value == 'gif') {
 		$new_meta_value = '<img src="' . get_template_directory_uri() . '/uploads_new/' . $meta_value . '" alt="">';
 		return $new_meta_value;
@@ -725,4 +729,4 @@ function change_view_image_meta_data_on_order_page( $meta_value, $meta, $item ){
 	}
 }
 
-add_filter( 'woocommerce_order_item_display_meta_value', 'change_view_image_meta_data_on_order_page', 10, 3 );
+add_filter( 'woocommerce_order_item_display_meta_value', 'tfj_change_view_image_meta_data_on_order_page', 10, 3 );
