@@ -619,8 +619,11 @@ function ajax_tfjAjaxUploadFile() {
 		$old_file_name = explode( '.', $_FILES["image"]["name"] );
  		$ext = strtolower( end( $old_file_name ) );
 		$new_file_name = md5( uniqid( rand(),true ) ). '.' . $ext;
-		move_uploaded_file( $file, __DIR__ . "/uploads_new/" .  $new_file_name );
-		$is_file_correct = true;
+		$is_file_correct_image = getimagesize( $_FILES["image"]["tmp_name"] );
+		if ( $is_file_correct_image ) :
+			move_uploaded_file( $file, __DIR__ . "/uploads_new/" .  $new_file_name );
+			$is_file_correct = true;
+		endif;
 	elseif ( $_FILES["image"]["name"] == "" ) :
 		$is_file_empty = true;
 	else :

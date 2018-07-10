@@ -68,7 +68,7 @@ jQuery(document).ready(function($) {
 			file =$(this).prop('files')[0];
 			formdata.append("image", file);
 		}
-		// console.log($(this).prop('files')[0]);
+		// console.log($(this).prop('files'));
 		// console.log(formdata);
 		// $('input[name="upload-image-name"]').val($(this).prop('files')[0]['name']);
 		formdata.append('action', 'tfjAjaxUploadFile');
