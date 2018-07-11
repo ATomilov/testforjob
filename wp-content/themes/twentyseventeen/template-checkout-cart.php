@@ -8,16 +8,47 @@ the_post();?>
 	<div id="primary" class="content-area">
 		<?php the_content();?>
 		<?php
+		// var_dump( wp_upload_dir() );
 			// foreach( WC()->cart->get_cart() as $cart_item ) :
 			// 	var_dump($cart_item);
 			// endforeach;
-			// global $post;
-			// $all_orders = wc_get_orders( $post->id );
-			// // var_dump( $all_orders );
-			// // $items = $order->get_item();
-			// foreach ($all_orders as $orders) :
-			// 	$orders_ids[] = $orders->get_id();
-			// endforeach;
+		// 	global $post;
+		// 	$all_orders = wc_get_orders( $post->id );
+		// 	// var_dump( $all_orders );
+		// 	// $items = $order->get_item();
+		// 	foreach ($all_orders as $orders) :
+		// 		// $orders_ids[] = $orders->get_id();
+		// 		// echo $orders->get_items() . "<br>";
+		// 		// var_dump( $orders );
+		// 		// var_dump( $orders->get_items() );
+		// 		$order_items = $orders->get_items();
+		// 		foreach ($order_items as $item_id => $item_data) :
+    // // Get the product name
+    // // $product_name = $item_data['name'];
+    // // Get the item quantity
+    // $item_quantity = $orders->get_item_meta($item_id, 'Image', true);
+    // // Get the item line total
+    // // $item_total = $orders->get_item_meta($item_id, '_line_total', true);
+
+    // // Displaying this data (to check)
+    // // echo 'Product name: '.$product_name.' | Quantity: '.$item_quantity.' | Item total: '. $item_total;
+		// 		endforeach;
+		// 	endforeach;
+// 			$order = wc_get_order( $post->id );
+// // Getting the items in the order
+// $order_items = $order->get_items();
+// // Iterating through each item in the order
+// foreach ($order_items as $item_id => $item_data) {
+//     // Get the product name
+//     $product_name = $item_data['name'];
+//     // Get the item quantity
+//     $item_quantity = $order->wc_get_order_item_meta($item_id, '_qty', true);
+//     // Get the item line total
+//     $item_total = $order->wc_get_order_item_meta($item_id, '_line_total', true);
+
+//     // Displaying this data (to check)
+//     echo 'Product name: '.$product_name.' | Quantity: '.$item_quantity.' | Item total: '. $item_total;
+// }
 	  		// echo max( $orders_ids );
 			// foreach ( $order->get_items() as $item ) :
 			

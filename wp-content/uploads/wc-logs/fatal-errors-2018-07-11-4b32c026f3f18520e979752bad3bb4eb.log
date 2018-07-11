@@ -1,0 +1,27 @@
+2018-07-11T04:48:44+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Order::wc_get_order_item_meta() in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\functions.php:623
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(286): ajax_tfjAjaxUploadFile('')
+#1 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\OSPanel\domains\testforjob\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\OSPanel\domains\testforjob\wp-admin\admin-ajax.php(99): do_action('wp_ajax_tfjAjax...')
+#4 {main}
+  thrown
+
+2018-07-11T04:50:21+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Order::get_post_meta() in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\functions.php:623
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(286): ajax_tfjAjaxUploadFile('')
+#1 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\OSPanel\domains\testforjob\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\OSPanel\domains\testforjob\wp-admin\admin-ajax.php(99): do_action('wp_ajax_tfjAjax...')
+#4 {main}
+  thrown
+
+2018-07-11T04:52:11+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Order::wc_get_order_item_meta() in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\functions.php:623
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(286): ajax_tfjAjaxUploadFile('')
+#1 C:\OSPanel\domains\testforjob\wp-includes\class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 C:\OSPanel\domains\testforjob\wp-includes\plugin.php(453): WP_Hook->do_action(Array)
+#3 C:\OSPanel\domains\testforjob\wp-admin\admin-ajax.php(99): do_action('wp_ajax_tfjAjax...')
+#4 {main}
+  thrown
+

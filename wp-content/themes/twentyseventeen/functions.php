@@ -610,18 +610,52 @@ function add_ajax_variable() {
 }
 add_action( 'wp_enqueue_scripts', 'add_ajax_variable' );
 
+if( $_GET['activated'] == 'true' ) {
+	wp_clear_scheduled_hook( 'clear_custom_images' );
+	if( !wp_next_scheduled( 'clear_custom_images' ) )
+	wp_schedule_event( time(), 'daily', 'clear_custom_images' );
+}
+ 
+add_action( 'clear_custom_images', 'tfj_clear_custom_images_not_in_orders', 10 );
+ 
+function tfj_clear_custom_images_not_in_orders() {
+	$upload_dir = wp_upload_dir();
+	$dir_items = array_diff( scandir( $upload_dir['basedir'] . "/tfj_uploads/" ), array('..', '.') );
+	$now = time();
+	global $post;
+	$all_orders = wc_get_orders( $post->id );
+	if ( !empty( $all_orders ) ) : 
+		foreach ( $all_orders as $order ) :
+			$order_items = $order->get_items();
+			foreach ( $order_items as $item_id => $item_data ) :
+  	  	$custom_images_in_orders[] = wc_get_order_item_meta( $item_id, 'Image' );
+			endforeach;
+		endforeach;
+	endif;
+	if ( !empty( $dir_items ) ) :
+		foreach ( $dir_items as $dir_item ) :
+			$file_stat = stat($upload_dir['basedir'] . "/tfj_uploads/" .  $dir_item);
+			$days_from_upload = ( $now - $file_stat['mtime'] ) / ( 60 * 60 * 24 );
+			if ( !in_array( $dir_item, $custom_images_in_orders ) && $days_from_upload >= 1 ) :
+				unlink( $upload_dir['basedir'] . "/tfj_uploads/" . $dir_item );
+			endif;
+		endforeach;
+	endif;
+}
+
 add_action('wp_ajax_tfjAjaxUploadFile', 'ajax_tfjAjaxUploadFile');
 add_action('wp_ajax_nopriv_tfjAjaxUploadFile', 'ajax_tfjAjaxUploadFile');
 
 function ajax_tfjAjaxUploadFile() {
-	if ( $_FILES["image"]["error"] == UPLOAD_ERR_OK && !file_exists(__DIR__ . "/uploads_new/" .  $_FILES["image"]["name"]) && ( $_FILES["image"]["type"] == "image/jpeg" || $_FILES["image"]["type"] == "image/gif" || $_FILES["image"]["type"] == "image/png" || $_FILES["image"]["type"] == "image/bmp" || $_FILES["image"]["type"] == "image/gif" ) && $_FILES["image"]["size"] <= 1*1024*1024 ) :
-		$file = $_FILES["image"]["tmp_name"];
-		$old_file_name = explode( '.', $_FILES["image"]["name"] );
- 		$ext = strtolower( end( $old_file_name ) );
-		$new_file_name = md5( uniqid( rand(),true ) ). '.' . $ext;
+	$upload_dir = wp_upload_dir();
+	if ( $_FILES["image"]["error"] == UPLOAD_ERR_OK && !file_exists( $upload_dir['basedir'] . "/tfj_uploads/" .  $_FILES["image"]["name"] ) && ( $_FILES["image"]["type"] == "image/jpeg" || $_FILES["image"]["type"] == "image/gif" || $_FILES["image"]["type"] == "image/png" || $_FILES["image"]["type"] == "image/bmp" || $_FILES["image"]["type"] == "image/gif" ) && $_FILES["image"]["size"] <= 1*1024*1024 ) :
 		$is_file_correct_image = getimagesize( $_FILES["image"]["tmp_name"] );
 		if ( $is_file_correct_image ) :
-			move_uploaded_file( $file, __DIR__ . "/uploads_new/" .  $new_file_name );
+			$file = $_FILES["image"]["tmp_name"];
+			$old_file_name = explode( '.', $_FILES["image"]["name"] );
+ 			$ext = strtolower( end( $old_file_name ) );
+			$new_file_name = md5( uniqid( rand(),true ) ). '.' . $ext;
+			move_uploaded_file( $file, $upload_dir['basedir'] . "/tfj_uploads/" .  $new_file_name );
 			$is_file_correct = true;
 		endif;
 	elseif ( $_FILES["image"]["name"] == "" ) :
@@ -631,7 +665,7 @@ function ajax_tfjAjaxUploadFile() {
 		$is_file_correct = false;
 	endif;
 	$result = array(
-		'url' 	=> get_template_directory_uri() . "/uploads_new/",
+		'url' 	=> $upload_dir['baseurl'] . "/tfj_uploads/",
 		'name' 	=> $new_file_name,
 		'is_file_correct' => $is_file_correct,
 		'is_file_empty' => $is_file_empty
@@ -699,13 +733,14 @@ function tfj_add_upload_file_name_to_cart_item( $cart_item_data, $product_id, $v
 add_filter( 'woocommerce_add_cart_item_data', 'tfj_add_upload_file_name_to_cart_item', 10, 3 );
 
 function tfj_display_upload_file_name_cart( $item_data, $cart_item ) {
+	$upload_dir = wp_upload_dir();
 	if ( empty( $cart_item['upload-image-name'] ) ) {
 		return $item_data;
 	}
 	$item_data[] = array(
 			'key'     => __( 'Image', 'tfj' ),
 			'value'   => wc_clean( $cart_item['upload-image-name'] ),
-			'display' => '<img src="' . get_template_directory_uri() . '/uploads_new/' . wc_clean( $cart_item['upload-image-name'] ) . '" alt="">',
+			'display' => '<img src="' . $upload_dir['baseurl'] . '/tfj_uploads/' . wc_clean( $cart_item['upload-image-name'] ) . '" alt="">',
 	);
 	return $item_data;
 }
@@ -722,9 +757,10 @@ function tfj_add_upload_image_name_to_order_items( $item, $cart_item_key, $value
 add_action( 'woocommerce_checkout_create_order_line_item', 'tfj_add_upload_image_name_to_order_items', 10, 4 );
 
 function tfj_change_view_image_meta_data_on_order_page( $meta_value, $meta, $item ){
+	$upload_dir = wp_upload_dir();
 	$extension_current_meta_value = strtolower( end( explode( ".", $meta_value ) ) );
 	if ( $extension_current_meta_value == 'png' || $extension_current_meta_value == 'jpg' || $extension_current_meta_value == 'jpeg' || $extension_current_meta_value == 'bmp' || $extension_current_meta_value == 'gif') {
-		$new_meta_value = '<img src="' . get_template_directory_uri() . '/uploads_new/' . $meta_value . '" alt="">';
+		$new_meta_value = '<img src="' . $upload_dir['baseurl'] . '/tfj_uploads/' . $meta_value . '" alt="">';
 		return $new_meta_value;
 	}
 	else {

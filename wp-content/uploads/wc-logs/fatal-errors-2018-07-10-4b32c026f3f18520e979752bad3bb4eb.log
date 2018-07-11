@@ -1,0 +1,115 @@
+2018-07-10T11:11:07+00:00 CRITICAL Uncaught Error: Call to a member function get_item() on string in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php:17
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include()
+#1 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#3 {main}
+  thrown
+
+2018-07-10T11:11:27+00:00 CRITICAL Uncaught Error: Call to a member function get_item() on string in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php:17
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include()
+#1 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#3 {main}
+  thrown
+
+2018-07-10T11:16:27+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_Abstract_Order::get_item(), 0 passed in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php on line 19 and at least 1 expected in C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-order.php:812
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php(19): WC_Abstract_Order->get_item()
+#1 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#3 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#4 {main}
+  thrown
+
+2018-07-10T11:18:45+00:00 CRITICAL Uncaught Error: Call to a member function get_items() on boolean in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php:25
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include()
+#1 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#3 {main}
+  thrown
+
+2018-07-10T11:19:51+00:00 CRITICAL Uncaught Error: Call to a member function get_items() on boolean in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php:24
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include()
+#1 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#3 {main}
+  thrown
+
+2018-07-10T11:20:50+00:00 CRITICAL Uncaught Error: Call to a member function get_items() on boolean in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php:24
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include()
+#1 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#3 {main}
+  thrown
+
+2018-07-10T11:21:15+00:00 CRITICAL Uncaught Error: Call to a member function get_items() on array in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php:24
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include()
+#1 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#3 {main}
+  thrown
+
+2018-07-10T11:25:51+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_Abstract_Order::get_item(), 0 passed in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php on line 21 and at least 1 expected in C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-order.php:812
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php(21): WC_Abstract_Order->get_item()
+#1 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#3 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#4 {main}
+  thrown
+
+2018-07-10T11:28:07+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_Abstract_Order::get_item(), 0 passed in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php on line 20 and at least 1 expected in C:\OSPanel\domains\testforjob\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-order.php:812
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php(20): WC_Abstract_Order->get_item()
+#1 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#3 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#4 {main}
+  thrown
+
+2018-07-10T11:30:24+00:00 CRITICAL Uncaught Error: Call to a member function get_items() on string in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php:23
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include()
+#1 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#3 {main}
+  thrown
+
+2018-07-10T11:30:46+00:00 CRITICAL Uncaught Error: Call to a member function wc_get_order_item_meta() on string in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php:28
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include()
+#1 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#3 {main}
+  thrown
+
+2018-07-10T11:31:38+00:00 CRITICAL Uncaught Error: Call to a member function get_item_meta() on string in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php:28
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include()
+#1 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#3 {main}
+  thrown
+
+2018-07-10T11:31:58+00:00 CRITICAL Uncaught Error: Call to a member function wc_get_order_item_meta() on string in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php:28
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include()
+#1 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#3 {main}
+  thrown
+
+2018-07-10T11:32:22+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Order::wc_get_order_item_meta() in C:\OSPanel\domains\testforjob\wp-content\themes\twentyseventeen\template-checkout-cart.php:28
+Stack trace:
+#0 C:\OSPanel\domains\testforjob\wp-includes\template-loader.php(74): include()
+#1 C:\OSPanel\domains\testforjob\wp-blog-header.php(19): require_once('C:\\OSPanel\\doma...')
+#2 C:\OSPanel\domains\testforjob\index.php(17): require('C:\\OSPanel\\doma...')
+#3 {main}
+  thrown
+
