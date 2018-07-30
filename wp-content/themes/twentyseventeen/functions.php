@@ -615,16 +615,16 @@ if( $_GET['activated'] == 'true' ) {
 	if( !wp_next_scheduled( 'clear_custom_images' ) )
 	wp_schedule_event( time(), 'daily', 'clear_custom_images' );
 }
- 
+
 add_action( 'clear_custom_images', 'tfj_clear_custom_images_not_in_orders', 10 );
- 
+
 function tfj_clear_custom_images_not_in_orders() {
 	$upload_dir = wp_upload_dir();
 	$dir_items = array_diff( scandir( $upload_dir['basedir'] . "/tfj_uploads/" ), array('..', '.') );
 	$now = time();
 	global $post;
 	$all_orders = wc_get_orders( $post->id );
-	if ( !empty( $all_orders ) ) : 
+	if ( !empty( $all_orders ) ) :
 		foreach ( $all_orders as $order ) :
 			$order_items = $order->get_items();
 			foreach ( $order_items as $item_id => $item_data ) :
@@ -687,7 +687,7 @@ function ajax_tfjAjaxUploadFile() {
 // 	if ( $product_id && $product_quantity && $custom_cart_meta ) :
 // 		WC()->cart->add_to_cart( $product_id, $product_quantity, $custom_cart_meta );
 // 		$possible = true;
-// 	else : 
+// 	else :
 // 		$possible = false;
 // 	endif;
 // 	$result = array(
